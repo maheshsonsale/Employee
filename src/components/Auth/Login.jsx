@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 
-export default function Login() {
+export default function Login({handleLogin}) {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('');
     const sumbmithandler = (e) => {
         e.preventDefault();
         // Handle login logic here
+        handleLogin(email,password)
         console.log(email);
         console.log(password);
 
@@ -32,7 +33,7 @@ export default function Login() {
                         required
                         onChange={(e) => { setPassword(e.target.value) }}
                     />
-                    <button className='border-2 border-emerald-600 rounded-full px-5 py-3 text-xl text-black placeholder:text-white'>Login</button>
+                    <button className='cursor-pointer bg-blue-700 border-2 border-emerald-600 rounded-full px-5 py-3 text-xl text-black placeholder:text-white'>Login</button>
                 </form>
             </div>
         </div>
